@@ -11,5 +11,20 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Gelasio`,
+            variants: [`400`,`400i`, `700`,`700i`],
+          },
+          {
+            family: `Roboto`,
+            variants: [`400`, `400i`]
+          },
+        ],
+      },
+    },
   ],
 }
