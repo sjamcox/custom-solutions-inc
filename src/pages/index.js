@@ -1,9 +1,9 @@
 import React from "react"
-import { Button } from '../components/Button'
 import { Header } from '../components/Header'
+import StyledBackgroundSection from '../components/HeroImage'
 
 export default () =>
     <div>
         <Header />
-        <Button primary>Contact Us</Button>
+        <StyledBackgroundSection />
     </div>
