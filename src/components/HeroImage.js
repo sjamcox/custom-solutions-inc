@@ -14,7 +14,7 @@ const BackgroundSection = ({ className }) => {
             hero_image {
               localFile {
                 childImageSharp {
-                    fluid(maxWidth: 1960) {
+                    fluid(maxWidth: 1400) {
                         ...GatsbyImageSharpFluid_tracedSVG
                     }
                 }
@@ -34,7 +34,7 @@ const BackgroundSection = ({ className }) => {
         className={className}
         fluid={home.hero_image.localFile.childImageSharp.fluid}>
         <h1>Text Overlay.</h1>
-        <Button primary>Request A Quote</Button>
+        <Button primary>Contact Us</Button>
       </BackgroundImage>
     )
 }
