@@ -1,9 +1,11 @@
-const size = {
+import { useMediaQuery } from 'react-responsive'
+
+export const size = {
     mobile: '425px',
     tablet: '768px',
     laptop: '1024px',
     laptopL: '1440px',
-    desktop: '2560px'
+    desktop: '2560px',
 }
 
 export const device = {
@@ -12,4 +14,12 @@ export const device = {
     laptop: `(min-width: ${size.laptop})`,
     laptopL: `(min-width: ${size.laptopL})`,
     desktop: `(min-width: ${size.desktop})`,
-};
+}
+
+export const deviceQuery = {
+    isMobile: useMediaQuery({ query: device.mobile}),
+    isTablet: useMediaQuery({ query: device.tablet}),
+    isLaptop: useMediaQuery({ query: device.tablet}),
+    isLaptopL: useMediaQuery({ query: device.tablet}),
+    isDesktop: useMediaQuery({ query: device.tablet}),
+}
