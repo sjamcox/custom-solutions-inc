@@ -15,7 +15,7 @@ const NavItemWrapper = styled.ul`
     }
 `
 
-export const NavList = () => {
+export const MainNav = () => {
     const data = useStaticQuery(graphql`
         query AllMainNavLinksQuery {
             prismicMenu(id: {eq: "Prismic__Menu__Xi4JwRAAACMArR6l"}) {

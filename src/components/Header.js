@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NavList } from './NavList'
+import { MainNav } from './MainNav'
+import { device } from '../utils/devices'
 
 const HeaderWrapper = styled.header`
     align-items: center;
@@ -17,9 +18,11 @@ const HeaderWrapper = styled.header`
     justify-content: space-between;
     left: 0px;
     top: 0px;
-    padding: 15px 100px;
     h2 {
         font-size: 30px;
+    }
+    @media ${device.laptop} {
+        padding: 15px 100px;
     }
 `
 
@@ -27,7 +30,7 @@ export const Header = () => {
     return (
         <HeaderWrapper>
             <h2>Custom Solutions, Inc.</h2>
-            <NavList />
+            <MainNav />
         </HeaderWrapper>
     )
 }
