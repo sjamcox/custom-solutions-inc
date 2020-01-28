@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { Context } from '../context/Context'
 import styled from 'styled-components'
 
 const Sidebar = styled.div`
@@ -17,15 +18,11 @@ const Sidebar = styled.div`
 
 export const MobileMenu = () => {
 
-    const [ isMenuOpen, setIsMenuOpen ] = useState(false)
-
-    function toggleMenu() {
-        setIsMenuOpen(prevState => !prevState)
-    }
+    const { toggleMenu, isMenuOpen } = useContext(Context)
 
     return (
         <div>
-           <GiHamburgerMenu size="1.5em" onClick={() => toggleMenu()}/>
+           <GiHamburgerMenu size="1.5em" onClick={toggleMenu}/>
            <Sidebar open={isMenuOpen} />
         </div>
     )
