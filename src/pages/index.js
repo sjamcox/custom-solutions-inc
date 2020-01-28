@@ -1,9 +1,8 @@
 import React from "react"
-import { Header } from '../components/Header'
 import StyledBackgroundSection from '../components/HeroImage'
+import { Layout } from "../components/Layout"
 
 export default () =>
-    <div>
-        <Header />
+    <Layout>
         <StyledBackgroundSection />
-    </div>
+    </Layout>

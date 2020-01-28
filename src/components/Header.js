@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 import { MainNav } from './MainNav'
 import { device } from '../utils/devices'
-import { MobileMenu } from './MobileMenu'
+import { Context } from '../context/Context'
+import { GiHamburgerMenu } from 'react-icons/gi' 
 
 const HeaderWrapper = styled.header`
     align-items: center;
@@ -36,11 +37,12 @@ const HeaderWrapper = styled.header`
 export const Header = () => {
 
     const isLaptopOrDesktop = useMediaQuery({query: device.laptop})
-
+    const { toggleMenu } = useContext(Context)
+    
     return (
         <HeaderWrapper>
             <h2>Custom Solutions, Inc.</h2>
-            {isLaptopOrDesktop ? <MainNav /> : <MobileMenu />}
+            {isLaptopOrDesktop ? <MainNav /> : <GiHamburgerMenu size="1.5em" onClick={toggleMenu}/>}
         </HeaderWrapper>
     )
 }
