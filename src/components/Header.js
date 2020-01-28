@@ -1,7 +1,9 @@
 import React from 'react'
+import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 import { MainNav } from './MainNav'
 import { device } from '../utils/devices'
+import { MobileMenu } from './MobileMenu'
 
 const HeaderWrapper = styled.header`
     align-items: center;
@@ -18,19 +20,26 @@ const HeaderWrapper = styled.header`
     justify-content: space-between;
     left: 0px;
     top: 0px;
+    padding: 0 10px;
     h2 {
-        font-size: 30px;
+        font-size: 20px;
     }
     @media ${device.laptop} {
         padding: 15px 100px;
+        h2 {
+            font-size: 30px;
+        }
     }
 `
 
 export const Header = () => {
+
+    const isLaptopOrDesktop = useMediaQuery({query: device.laptop})
+
     return (
         <HeaderWrapper>
             <h2>Custom Solutions, Inc.</h2>
-            <MainNav />
+            {isLaptopOrDesktop ? <MainNav /> : <MobileMenu />}
         </HeaderWrapper>
     )
 }

@@ -16,6 +16,7 @@ const NavItemWrapper = styled.ul`
 `
 
 export const MainNav = () => {
+    
     const data = useStaticQuery(graphql`
         query AllMainNavLinksQuery {
             prismicMenu(id: {eq: "Prismic__Menu__Xi4JwRAAACMArR6l"}) {
@@ -35,14 +36,16 @@ export const MainNav = () => {
     `)
     
     const menuLinks = data.prismicMenu.data.menu_links
+
     return (
         <MainNavWrapper>
             {menuLinks.map(link =>
-                <NavItemWrapper>
-                    {link.link.link_type === "Web" && <li><a href={link.link.url}>{link.label.text}</a></li>}
-                    {link.link.link_type === "Document" && <li><Link to={link.link.url}>{link.label.text}</Link></li>}
-                </NavItemWrapper>
-            )}
+                    <NavItemWrapper>
+                        {link.link.link_type === "Web" && <li><a href={link.link.url}>{link.label.text}</a></li>}
+                        {link.link.link_type === "Document" && <li><Link to={link.link.url}>{link.label.text}</Link></li>}
+                    </NavItemWrapper>
+                )
+            }
         </MainNavWrapper>
     )
 }
