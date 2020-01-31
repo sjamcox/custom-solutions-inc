@@ -7,7 +7,9 @@ import { Context } from '../context/Context'
 const SiteWrapper = styled.div`
     transition: margin-left .5s;
     overflow-x: hidden;
-    margin-left: ${props => props.open ? '250px' : '0px'};
+    body {
+        background-color: ${props => props.open ? 'rgba(0,0,0,0.4)' : 'white'};
+    }
 `
 
 export const Layout = ({ children }) => {
