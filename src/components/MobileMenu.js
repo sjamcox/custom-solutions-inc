@@ -14,12 +14,6 @@ const SidebarWrapper = styled.div`
     right: 0;
     overflow-x: hidden;
     transition: 0.5s;
-    li a {
-        text-decoration: none;
-        color: grey;
-        overflow: hidden;
-        white-space: nowrap;
-    }
     .close-icon {
         text-align: right;
     }
@@ -32,14 +26,17 @@ const SidebarInnerWrapper = styled.div`
     }
 `
 
-const NavItemWrapper = styled.ul`
+const NavItem = styled.li`
     padding: 10px;
-    li a {
+    list-style: none;
+    margin-bottom: 0;
+    a {
         text-decoration: none;
         color: white;
         font-weight: 400;
-        font-family: Roboto;
         font-size: 20px;
+        overflow: hidden;
+        white-space: nowrap;
     }
 `
 
@@ -71,15 +68,17 @@ export const MobileMenu = () => {
         <div>
            <SidebarWrapper open={isMenuOpen}>
                 <SidebarInnerWrapper>
-                    <div class="close-icon">
+                    <div className="close-icon">
                         <MdClose onClick={toggleMenu} size="1.5em" />
                     </div>
-                    {menuLinks.map(link =>
-                        <NavItemWrapper>
-                            {link.link.link_type === "Web" && <li><a href={link.link.url}>{link.label.text}</a></li>}
-                            {link.link.link_type === "Document" && <li><Link to={link.link.url}>{link.label.text}</Link></li>}
-                        </NavItemWrapper>
-                    )} 
+                    <ul>
+                        {menuLinks.map(link =>
+                            <NavItem>
+                                {link.link.link_type === "Web" && <a href={link.link.url}>{link.label.text}</a>}
+                                {link.link.link_type === "Document" && <Link to={link.link.url}>{link.label.text}</Link>}
+                            </NavItem>
+                        )} 
+                    </ul>
                 </SidebarInnerWrapper>
            </SidebarWrapper>
         </div>

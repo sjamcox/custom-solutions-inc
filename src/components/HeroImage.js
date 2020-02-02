@@ -3,6 +3,14 @@ import { graphql, useStaticQuery } from "gatsby"
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import { Button } from './Button'
+import { color } from '../utils/colors'
+
+const FeaturedText = styled.h1`
+  color: ${color.white};
+  width: 80vw;
+  text-align: center;
+  text-shadow: 2px 3px 10px rgba(0,0,0,0.3);
+`
 
 const BackgroundSection = ({ className }) => {
   const data = useStaticQuery(graphql`
@@ -15,8 +23,9 @@ const BackgroundSection = ({ className }) => {
               localFile {
                 childImageSharp {
                     fluid(maxWidth: 1400) {
-                        ...GatsbyImageSharpFluid_tracedSVG
+                        ...GatsbyImageSharpFluid
                     }
+                  }
                 }
               }
             }
@@ -24,7 +33,6 @@ const BackgroundSection = ({ className }) => {
         }
       }
     }
-  }
   `)
 
   const home = data.allPrismicHome.edges[0].node.data
@@ -33,7 +41,7 @@ const BackgroundSection = ({ className }) => {
       <BackgroundImage 
         className={className}
         fluid={home.hero_image.localFile.childImageSharp.fluid}>
-        <h1>Text Overlay.</h1>
+        <FeaturedText>Premium Cabinetry</FeaturedText>
         <Button primary>Contact Us</Button>
       </BackgroundImage>
     )
@@ -50,10 +58,6 @@ const StyledBackgroundSection = styled(BackgroundSection)`
     justify-content: center;
     align-items: center;
     color: white;
-    h1 {
-        font-size: 70px;
-        margin: 50px;
-    }
 `
 
 export default StyledBackgroundSection

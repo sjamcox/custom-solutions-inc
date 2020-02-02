@@ -3,13 +3,18 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 const MainNavWrapper = styled.nav`
-    display: flex;
-    flex-direction: row;
+    ul {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+    }
 `
 
-const NavItemWrapper = styled.ul`
-    padding: 20px;
-    li a {
+const NavItem = styled.li`
+    list-style: none;
+    margin: 0 20px;
+    text-align: right;
+    a {
         text-decoration: none;
         color: grey;
     }
@@ -39,13 +44,15 @@ export const MainNav = () => {
 
     return (
         <MainNavWrapper>
+            <ul>
             {menuLinks.map(link =>
-                    <NavItemWrapper>
-                        {link.link.link_type === "Web" && <li><a href={link.link.url}>{link.label.text}</a></li>}
-                        {link.link.link_type === "Document" && <li><Link to={link.link.url}>{link.label.text}</Link></li>}
-                    </NavItemWrapper>
+                    <NavItem>
+                        {link.link.link_type === "Web" && <a href={link.link.url}>{link.label.text}</a>}
+                        {link.link.link_type === "Document" && <Link to={link.link.url}>{link.label.text}</Link>}
+                    </NavItem>
                 )
             }
+            </ul>
         </MainNavWrapper>
     )
 }

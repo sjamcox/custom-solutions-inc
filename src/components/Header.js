@@ -24,6 +24,7 @@ const HeaderWrapper = styled.header`
     padding: 0 10px;
     h2 {
         font-size: 20px;
+        margin: 0;
     }
     
     @media ${device.laptop} {
