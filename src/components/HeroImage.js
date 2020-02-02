@@ -36,21 +36,27 @@ const BackgroundSection = ({ className }) => {
   `)
 
   const home = data.allPrismicHome.edges[0].node.data
+  const backgroundFluidImageStack = [
+    `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))`,
+    home.hero_image.localFile.childImageSharp.fluid,
+  ]
 
   return (
-      <BackgroundImage 
-        className={className}
-        fluid={home.hero_image.localFile.childImageSharp.fluid}>
-        <FeaturedText>Premium Cabinetry</FeaturedText>
-        <Button primary>Contact Us</Button>
-      </BackgroundImage>
+      <section style={{backgroundColor: "pink"}}>
+        <BackgroundImage 
+          className={className}
+          fluid={backgroundFluidImageStack}>
+          <FeaturedText>Premium Cabinetry</FeaturedText>
+          <Button primary>Contact Us</Button>
+        </BackgroundImage>
+      </section>
     )
 }
 
-const StyledBackgroundSection = styled(BackgroundSection)`
+export const HeroImage = styled(BackgroundSection)`
     width: 100%;
     height: 80vh;
-    background-position: bottom center;
+    background-position: center center;
     background-repeat: repeat-y;
     background-size: cover;
     display: flex;
@@ -59,5 +65,3 @@ const StyledBackgroundSection = styled(BackgroundSection)`
     align-items: center;
     color: white;
 `
-
-export default StyledBackgroundSection
