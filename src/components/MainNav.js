@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import { color } from '../utils/colors'
 
 const MainNavWrapper = styled.nav`
     ul {
@@ -16,7 +17,8 @@ const NavItem = styled.li`
     text-align: right;
     a {
         text-decoration: none;
-        color: grey;
+        color: ${color.granite};
+        font-weight: 400;
     }
 `
 
