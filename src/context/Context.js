@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
-const Context = React.createContext(null)
+
+const defaultState = {
+    isMenuOpen: false,
+    toggleMenu: () => {}
+}
+
+const Context = React.createContext(defaultState)
 
 const ContextProvider = ({ children }) => {
     
