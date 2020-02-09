@@ -3,6 +3,7 @@ import { device } from './devices'
 import { color } from './colors'
 
 export const GlobalStyle = createGlobalStyle`
+
     html {
         font-size: 62.5%;
     }
