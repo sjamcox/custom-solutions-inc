@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import { device } from './devices'
-import { color } from './colors'
+import { device } from '../utils/devices'
+import { color } from '../utils/colors'
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 2rem;
     font-family: 'Gelasio', serif;
     font-weight: 400;
+    font-display: block;
     }
 
     h1 { font-weight: 700; font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem; }

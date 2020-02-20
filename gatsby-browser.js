@@ -1,7 +1,9 @@
 import React from 'react'
-import "./src/styles/global.css"
 import { ContextProvider } from "./src/context/Context"
-import { GlobalStyle } from './src/utils/GlobalStyle'
+import 'normalize.css'
+import { GlobalStyle } from './src/styles/GlobalStyle'
+require('typeface-gelasio')
+require('typeface-roboto')
 
 export const wrapRootElement = ({ element }) => (
     <ContextProvider>

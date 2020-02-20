@@ -5,12 +5,8 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Add any options here
-      },
-    },
+    `gatsby-plugin-preload-fonts`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -27,19 +23,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        fonts: [
-          {
-            family: `Gelasio`,
-            variants: [`400`,`400i`, `700`,`700i`],
-          },
-          {
-            family: `Roboto`,
-            variants: [`400`, `400i`]
-          },
-        ],
+        name: `Custom Solutions Inc.`,
+        short_name: `CSI`,
+        start_url: `/`,
+        background_color: `#eCe2d0`,
+        theme_color: `#eCe2d0`,
+        display: `standalone`,
       },
     },
+    `gatsby-plugin-offline`,
   ],
 }
