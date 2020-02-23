@@ -10,6 +10,7 @@ const FeaturedText = styled.h1`
   color: ${color.granite};
   width: 80vw;
   text-align: center;
+  font-display: block;
   @media ${device.tablet} {
     max-width: 700px;
     font-size: 3.5em;
